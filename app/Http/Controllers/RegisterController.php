@@ -11,6 +11,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest',['except' => 'destroy']);
+        $this->middleware('checkAge')->only('store');
     }
 
     
@@ -35,6 +36,9 @@ class RegisterController extends Controller
             $user ->save();
 
             auth()->login($user);
+
+
+            session()->flash('message','Uspesno ste se registrovali');
 
             return redirect('/posts');
             

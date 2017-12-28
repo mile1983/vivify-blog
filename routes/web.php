@@ -28,8 +28,6 @@ Route::post('/posts/{postId}/comments', ['as' => 'comments-post', 'uses' => 'Com
 
 Route::get('/register','RegisterController@create');
 
-Route::get('/register','RegisterController@create');
-
 Route::post('/register','RegisterController@store');
 
 Route::get('/logout','LoginController@destroy');
@@ -37,3 +35,5 @@ Route::get('/logout','LoginController@destroy');
 Route::get('/login','LoginController@create');
 
 Route::post('/login','LoginController@store');
+
+Route::get('/users/{id}','UsersController@show');
